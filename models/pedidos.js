@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 const pedidosSchema = new mongoose.Schema(
     {
         status: String, // 0: pendiente, 1: entregado, 2: cancelado 
-        fechaPedido: String,
+        fechaPedido: Date,
         fechaEntregaPedido: String,
         cantidadPaquetes: String,
         kilos: String,

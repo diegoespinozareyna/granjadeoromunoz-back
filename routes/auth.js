@@ -65,6 +65,7 @@ import { handleContratoComentario } from '../handlers/handleContratoComentario.j
 import { handleGetVentasAlojamientoContratoAll } from '../handlers/handleGetVentasAlojamientoContratoAll.js';
 import { handleRegistroPedido } from '../handlers/handleRegistroPedido.js';
 import { handleGetPedidos } from '../handlers/handleGetPedidos.js';
+import { handlePedidosSemana } from '../handlers/handlePedidosSemana.js';
 
 const app = express();
 
@@ -1752,5 +1753,6 @@ router.get("/getProductosBazarUnits", handleGetProductosBazarUnits);
 // pedidos
 router.post("/registroPedido", handleRegistroPedido);
 router.get("/getpedidos", handleGetPedidos);
+router.post("/pedidosSemana", handlePedidosSemana);
 
 export default router;
