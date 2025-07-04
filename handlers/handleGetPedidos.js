@@ -1,17 +1,39 @@
+import moment from "moment-timezone";
 import Pedidos from "../models/pedidos.js";
 
 export const handleGetPedidos = async (req, res) => {
     try {
-        const query = req.query.documentoUsuario || '';
-        console.log('query: ', query);
+        const documentoUsuario = req.query.documentoUsuario || '';
+        const fechaInicio = req.query.fechaInicio || '';
+        const fechaFin = req.query.fechaFin || '';
 
-        const pedidos = await Pedidos.find({
-            documentoUsuario: query, // insensitive search
-        }); // Limitar a 10 resultados
+        console.log("documentoUsuario: ", documentoUsuario)
+        console.log("fechaInicio: ", fechaInicio)
+        console.log("fechaFin: ", fechaFin)
+
+        const filtro = { documentoUsuario: documentoUsuario };
+
+        if (fechaInicio && fechaFin) {
+            const fechaInicioDate = new Date(moment.tz(fechaInicio, "DD-MM-YYYY", "").startOf("day").format());
+            const fechaFinDate = new Date(moment.tz(fechaFin, "DD-MM-YYYY", "").endOf("day").format());
+
+            filtro.fechaPedido = {
+                $gte: fechaInicioDate,
+                $lte: fechaFinDate,
+            };
+        }
+
+        console.log("filtro de pedidosSemana: ", filtro);
+
+        const pedidosSemana = await Pedidos.find(filtro).exec();
+
+        // const pedidos = await Pedidos.find({
+        //     documentoUsuario: documentoUsuario, // insensitive search
+        // }); // Limitar a 10 resultados
 
         return res.status(201).json({
             message: "pedidos obtenmidos desde la base de datos",
-            data: pedidos,
+            data: pedidosSemana,
             status: 201,
         });
     } catch (error) {
