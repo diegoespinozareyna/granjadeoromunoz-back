@@ -14,7 +14,7 @@ export const handlePedidosSemana = async (req, res) => {
 
         console.log('body de pedidos semana: ', body)
 
-        const filtro = { status: "0", documentoUsuario: documentoUsuario };
+        const filtro = { documentoUsuario: documentoUsuario };
 
         if (fechaInicio && fechaFin) {
             const fechaInicioDate = new Date(moment.tz(fechaInicio, "DD-MM-YYYY", "America/Lima").startOf("day").format());

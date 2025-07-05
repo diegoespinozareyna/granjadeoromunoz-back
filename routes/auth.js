@@ -66,6 +66,9 @@ import { handleGetVentasAlojamientoContratoAll } from '../handlers/handleGetVent
 import { handleRegistroPedido } from '../handlers/handleRegistroPedido.js';
 import { handleGetPedidos } from '../handlers/handleGetPedidos.js';
 import { handlePedidosSemana } from '../handlers/handlePedidosSemana.js';
+import { handleChangeStatusPedido } from '../handlers/handleChangeStatusPedido.js';
+import { handleStock } from '../handlers/handleStock.js';
+import { handleChangeStatusFechaEntregaPedido } from '../handlers/handleChangeStatusFechaEntregaPedido.js';
 
 const app = express();
 
@@ -1754,5 +1757,11 @@ router.get("/getProductosBazarUnits", handleGetProductosBazarUnits);
 router.post("/registroPedido", handleRegistroPedido);
 router.get("/getpedidos", handleGetPedidos);
 router.post("/pedidosSemana", handlePedidosSemana);
+router.patch("/changeStatusPedido", handleChangeStatusPedido);
+router.patch("/changeStatusFechaEntregaPedido", handleChangeStatusFechaEntregaPedido);
+
+// stock
+// router.post("/registroStock", handleRegistroStock);
+router.get("/stock", handleStock);
 
 export default router;

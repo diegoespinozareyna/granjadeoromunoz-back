@@ -21,6 +21,11 @@ export const handleGetPedidos = async (req, res) => {
                 $gte: fechaInicioDate,
                 $lte: fechaFinDate,
             };
+
+            if (documentoUsuario === "") {
+                delete filtro.documentoUsuario; // Eliminar el filtro de status si es 2
+            }
+
         }
 
         console.log("filtro de pedidosSemana: ", filtro);
