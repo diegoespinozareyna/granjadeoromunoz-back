@@ -21,6 +21,11 @@ export const handleRegistroPedido = async (req, res) => {
             apellidoMaternoUsuario,
             usuario,
             proyecto,
+            membresia,
+            distritoEntrega,
+            provinciaEntrega,
+            departamentoEntrega,
+            celularEntrega,
         } = body;
 
         console.log("body de registro pedido: ", body)
@@ -40,6 +45,11 @@ export const handleRegistroPedido = async (req, res) => {
             nombresUsuario: nombresUsuario,
             apellidoPaternoUsuario: apellidoPaternoUsuario,
             apellidoMaternoUsuario: apellidoMaternoUsuario,
+            membresia: membresia,
+            distritoEntrega: distritoEntrega,
+            provinciaEntrega: provinciaEntrega,
+            departamentoEntrega: departamentoEntrega,
+            celularEntrega: celularEntrega,
             usuario: usuario,
             proyecto: proyecto,
         };
