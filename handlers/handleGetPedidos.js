@@ -6,12 +6,14 @@ export const handleGetPedidos = async (req, res) => {
         const documentoUsuario = req.query.documentoUsuario || '';
         const fechaInicio = req.query.fechaInicio || '';
         const fechaFin = req.query.fechaFin || '';
+        const status = req.query.statusFiltro || '';
 
         console.log("documentoUsuario: ", documentoUsuario)
         console.log("fechaInicio: ", fechaInicio)
         console.log("fechaFin: ", fechaFin)
+        console.log("status: ", status)
 
-        const filtro = { documentoUsuario: documentoUsuario };
+        const filtro = { documentoUsuario: documentoUsuario, status: status };
 
         if (fechaInicio && fechaFin) {
             const fechaInicioDate = new Date(moment.tz(fechaInicio, "DD-MM-YYYY", "").startOf("day").format());
@@ -24,6 +26,10 @@ export const handleGetPedidos = async (req, res) => {
 
             if (documentoUsuario === "") {
                 delete filtro.documentoUsuario; // Eliminar el filtro de status si es 2
+            }
+
+            if (status === "") {
+                delete filtro.status; // Eliminar el filtro de status si es 2
             }
 
         }
