@@ -69,6 +69,11 @@ import { handlePedidosSemana } from '../handlers/handlePedidosSemana.js';
 import { handleChangeStatusPedido } from '../handlers/handleChangeStatusPedido.js';
 import { handleStock } from '../handlers/handleStock.js';
 import { handleChangeStatusFechaEntregaPedido } from '../handlers/handleChangeStatusFechaEntregaPedido.js';
+import { handleGetPedido } from '../handlers/handleGetPedido.js';
+import { handleEditarPedido } from '../handlers/handleEditarPedido.js';
+import { handleGetAllUsuarios } from '../handlers/handleGetAllUsuarios.js';
+import { handleGetUserById } from '../handlers/handleGetUserById.js';
+import { handleEditarUsuarioId } from '../handlers/handleEditarUsuarioId.js';
 
 const app = express();
 
@@ -359,33 +364,6 @@ router.get("/getAllHabitaciones", async (req, res) => {
         return res.status(200).json({
             message: "Propiedades obtenidas desde la base de datos",
             data: propiedades,
-            status: 200,
-        });
-    } catch (error) {
-        console.error("❌ Error en getAllPropiedades:", error);
-        return res.status(500).json({ message: `Error desconocido: ${error.message}` });
-    }
-});
-
-router.get("/getAllUsuarios", async (req, res) => {
-    try {
-        const params = req.query;
-        const proyecto = params?.params?.proyecto;
-
-        if (!proyecto) {
-            return res.status(400).json({ message: "El parámetro 'proyecto' es obligatorio" });
-        }
-
-        console.log("🔍 Buscando en la base de datos usuarios...");
-        const usuarios = await UsersModel.find().exec();
-
-        if (!usuarios || usuarios.length === 0) {
-            return res.status(404).json({ message: "No se encontraron usuarios" });
-        }
-
-        return res.status(200).json({
-            message: "usuarios obtenidas desde la base de datos",
-            data: usuarios,
             status: 200,
         });
     } catch (error) {
@@ -1702,8 +1680,8 @@ router.get("/getHabitacionUnique", handleHabitacionUnica);
 router.post("/ingresosEgresosCajaReal", handleIngresosEgresosCajaReal);
 router.get("/getCaja", handleGetCaja);
 
-// usuarios
-router.post("/registroUsuario", handleRegistroUsuario);
+// // usuarios
+// router.post("/registroUsuario", handleRegistroUsuario);
 
 // otros ingresos egresos
 // router.get("/getOtrosIngresosEgresos", handleGetOtrosIngresosEgresos);
@@ -1759,9 +1737,18 @@ router.get("/getpedidos", handleGetPedidos);
 router.post("/pedidosSemana", handlePedidosSemana);
 router.patch("/changeStatusPedido", handleChangeStatusPedido);
 router.patch("/changeStatusFechaEntregaPedido", handleChangeStatusFechaEntregaPedido);
+router.get("/getpedido", handleGetPedido);
+router.patch("/editarPedido", handleEditarPedido);
 
 // stock
 // router.post("/registroStock", handleRegistroStock);
 router.get("/stock", handleStock);
+
+// usuarios
+router.post("/registroUsuario", handleRegistroUsuario);
+router.get("/getAllUsuarios", handleGetAllUsuarios);
+router.get("/getUserById", handleGetUserById);
+router.put("/editarUsuarioId", handleEditarUsuarioId);
+// router.patch("/editUserRolesSedes", handleEditUserRolesSedes);
 
 export default router;

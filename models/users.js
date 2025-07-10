@@ -16,35 +16,12 @@ const userSchema = new mongoose.Schema(
         apellidoPaterno: String,
         apellidoMaterno: String,
         celular: String,
-        email: String,
-        fechaNacimiento: String,
         direccion: String,
-        estadoCivil: String,
-        ocupacion: String,
-
-        // Datos corporativos (si aplica)
-        empresa: String,
-        ruc: String,
-        razonSocial: String,
-        rucEmpresa: String,
-
-        // Datos específicos de hotel
-        tipoHuesped: String,
-        ultimaHabitacionUsada: String,
-        metodoPagoPreferido: String,
-        nivelFidelizacion: String,
-
-        // Historial de estancias
-        historial: [
-            {
-                numeroContrato: String,
-                numeroHabitacion: String,
-                fechaInicio: String,
-                fechaFin: String,
-                tarifaContrato: String,
-                comentarios: String
-            }
-        ],
+        distrito: String,
+        provincia: String,
+        departamento: String,
+        membresia500: String,
+        menbresia200: String,
     },
     {
         timestamps: true,
