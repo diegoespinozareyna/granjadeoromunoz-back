@@ -4,11 +4,11 @@ export const handleChangeStatusPedido = async (req, res) => {
     try {
         const body = await req.body;
 
-        const { status, id } = body;
+        const { status, id, comentario } = body;
 
         console.log("body de changeStatusPedido: ", body)
 
-        const updatedPedido = await Pedidos.findByIdAndUpdate(id, { status: status }, { new: true });
+        const updatedPedido = await Pedidos.findByIdAndUpdate(id, { status: status, comentario: comentario }, { new: true });
 
         // Si no se encontró el voucher
         if (!updatedPedido) {

@@ -23,6 +23,7 @@ const pedidosSchema = new mongoose.Schema(
         provinciaEntrega: String,
         departamentoEntrega: String,
         celularEntrega: String,
+        comentario: String,
         usuario: String,
         proyecto: String,
     },

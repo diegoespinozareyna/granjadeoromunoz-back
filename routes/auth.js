@@ -74,6 +74,8 @@ import { handleEditarPedido } from '../handlers/handleEditarPedido.js';
 import { handleGetAllUsuarios } from '../handlers/handleGetAllUsuarios.js';
 import { handleGetUserById } from '../handlers/handleGetUserById.js';
 import { handleEditarUsuarioId } from '../handlers/handleEditarUsuarioId.js';
+import { handleGetConfig } from '../handlers/handleGetConfig.js';
+import { handlePacthConfig } from '../handlers/handlePacthConfig.js';
 
 const app = express();
 
@@ -1750,5 +1752,9 @@ router.get("/getAllUsuarios", handleGetAllUsuarios);
 router.get("/getUserById", handleGetUserById);
 router.put("/editarUsuarioId", handleEditarUsuarioId);
 // router.patch("/editUserRolesSedes", handleEditUserRolesSedes);
+
+// configs
+router.get("/getConfig", handleGetConfig);
+router.patch("/pacthConfig", handlePacthConfig);
 
 export default router;
