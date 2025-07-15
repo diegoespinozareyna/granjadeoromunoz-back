@@ -4,13 +4,14 @@ export const handleEditarUsuarioId = async (req, res) => {
     try {
         const body = await req.body;
 
-        const { id, nombres, apellidoPaterno, apellidoMaterno, celular, direccion, distrito, provincia, departamento, membresia500, menbresia200, statusActive } = body;
+        const { id, documentoUsuario, nombres, apellidoPaterno, apellidoMaterno, celular, direccion, distrito, provincia, departamento, membresia500, menbresia200, statusActive } = body;
 
         console.log("body de editarUsuarioId: ", body)
 
         const updatedUser = await UsersModel.findByIdAndUpdate(
             id,
             {
+                documentoUsuario,
                 nombres,
                 apellidoPaterno,
                 apellidoMaterno,

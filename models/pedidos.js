@@ -24,6 +24,7 @@ const pedidosSchema = new mongoose.Schema(
         departamentoEntrega: String,
         celularEntrega: String,
         comentario: String,
+        urlPago: String,
         usuario: String,
         proyecto: String,
     },
