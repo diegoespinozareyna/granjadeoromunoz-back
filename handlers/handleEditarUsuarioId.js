@@ -4,7 +4,7 @@ export const handleEditarUsuarioId = async (req, res) => {
     try {
         const body = await req.body;
 
-        const { id, documentoUsuario, nombres, apellidoPaterno, apellidoMaterno, celular, direccion, distrito, provincia, departamento, membresia500, menbresia200, statusActive } = body;
+        const { id, documentoUsuario, nombres, apellidoPaterno, apellidoMaterno, celular, direccion, distrito, provincia, departamento, membresia500, menbresia200, statusActive, password } = body;
 
         console.log("body de editarUsuarioId: ", body)
 
@@ -23,6 +23,7 @@ export const handleEditarUsuarioId = async (req, res) => {
                 membresia500,
                 menbresia200,
                 statusActive,
+                password,
             },
             { new: true }
         );
