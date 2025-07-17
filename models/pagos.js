@@ -3,10 +3,10 @@ import mongoose from 'mongoose';
 
 const pagosSchema = new mongoose.Schema(
     {
-        codLote: String,
+        codPedido: String,
         nOperacion: String,
         documentoUsuario: String,
-        fechaPago: Date,
+        fechaPago: String,
         formaPago: String,
         monto: String,
         fechaVerificacion: String,

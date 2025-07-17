@@ -76,6 +76,10 @@ import { handleGetUserById } from '../handlers/handleGetUserById.js';
 import { handleEditarUsuarioId } from '../handlers/handleEditarUsuarioId.js';
 import { handleGetConfig } from '../handlers/handleGetConfig.js';
 import { handlePacthConfig } from '../handlers/handlePacthConfig.js';
+import { handleSubirVoucher } from '../handlers/handleSubirVoucher.js';
+import { handleGetVouchersAll } from '../handlers/handleGetVouchersAll.js';
+import { handleEditVouchers } from '../handlers/handleEditVouchers.js';
+import { handleGetVouchersAllFull } from '../handlers/handleGetVouchersAllFull.js';
 
 const app = express();
 
@@ -1756,5 +1760,11 @@ router.put("/editarUsuarioId", handleEditarUsuarioId);
 // configs
 router.get("/getConfig", handleGetConfig);
 router.patch("/pacthConfig", handlePacthConfig);
+
+// vouchers
+router.post("/subirVoucher", handleSubirVoucher);
+router.get("/getVouchersAll", handleGetVouchersAll);
+router.patch("/getEditVoucher", handleEditVouchers);
+router.get("/getVouchersAllFull", handleGetVouchersAllFull);
 
 export default router;

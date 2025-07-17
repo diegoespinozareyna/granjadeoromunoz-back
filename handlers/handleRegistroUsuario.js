@@ -27,7 +27,7 @@ export const handleRegistroUsuario = async (req, res) => {
 
         console.log("body de registroUsuario: ", body)
 
-        const user = await UsersModel.findOne({ documentoUsuario: body.documentoUsuario }).lean().exec();
+        const user = await UsersModel.findOne({ documentoUsuario: body.documentoCliente }).lean().exec();
         if (user) return res.status(406).json({
             message: 'Usuario ya existe',
             messageLarge: 'Lo sentimos, su usuario no existe, verifique y vuleva a intentarlo',
