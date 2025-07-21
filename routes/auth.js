@@ -80,6 +80,7 @@ import { handleSubirVoucher } from '../handlers/handleSubirVoucher.js';
 import { handleGetVouchersAll } from '../handlers/handleGetVouchersAll.js';
 import { handleEditVouchers } from '../handlers/handleEditVouchers.js';
 import { handleGetVouchersAllFull } from '../handlers/handleGetVouchersAllFull.js';
+import { handleInsertUrlsPagos } from '../handlers/handleInsertUrlsPagos.js';
 
 const app = express();
 
@@ -1745,6 +1746,7 @@ router.patch("/changeStatusPedido", handleChangeStatusPedido);
 router.patch("/changeStatusFechaEntregaPedido", handleChangeStatusFechaEntregaPedido);
 router.get("/getpedido", handleGetPedido);
 router.patch("/editarPedido", handleEditarPedido);
+router.patch("/insertUrlsPagos", handleInsertUrlsPagos);
 
 // stock
 // router.post("/registroStock", handleRegistroStock);

@@ -26,6 +26,7 @@ export const handleRegistroPedido = async (req, res) => {
             provinciaEntrega,
             departamentoEntrega,
             celularEntrega,
+            zona
         } = body;
 
         console.log("body de registro pedido: ", body)
@@ -50,6 +51,7 @@ export const handleRegistroPedido = async (req, res) => {
             provinciaEntrega: provinciaEntrega,
             departamentoEntrega: departamentoEntrega,
             celularEntrega: celularEntrega,
+            zona: zona,
             usuario: usuario,
             proyecto: proyecto,
         };

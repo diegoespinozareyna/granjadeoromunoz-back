@@ -11,7 +11,9 @@ export const handleEditarPedido = async (req, res) => {
         distritoEntrega,
         provinciaEntrega,
         departamentoEntrega,
-        celularEntrega } = req.body;
+        celularEntrega,
+        zona,
+    } = req.body;
 
     try {
 
@@ -26,7 +28,8 @@ export const handleEditarPedido = async (req, res) => {
                 distritoEntrega,
                 provinciaEntrega,
                 departamentoEntrega,
-                celularEntrega
+                celularEntrega,
+                zona
             },
             { new: true }
         );
