@@ -81,6 +81,8 @@ import { handleGetVouchersAll } from '../handlers/handleGetVouchersAll.js';
 import { handleEditVouchers } from '../handlers/handleEditVouchers.js';
 import { handleGetVouchersAllFull } from '../handlers/handleGetVouchersAllFull.js';
 import { handleInsertUrlsPagos } from '../handlers/handleInsertUrlsPagos.js';
+import { handleIsCobrarUtilidad } from '../handlesrsUtilidades/handleIsCobrarUtilidad.js';
+import { handleUtilidadTrimestral } from '../handlesrsUtilidades/handleUtilidadTrimestral.js';
 
 const app = express();
 
@@ -1768,5 +1770,9 @@ router.post("/subirVoucher", handleSubirVoucher);
 router.get("/getVouchersAll", handleGetVouchersAll);
 router.patch("/getEditVoucher", handleEditVouchers);
 router.get("/getVouchersAllFull", handleGetVouchersAllFull);
+
+// utilidades
+router.patch("/isCobrarUtilidad", handleIsCobrarUtilidad);
+router.patch("/utilidadTrimestral", handleUtilidadTrimestral);
 
 export default router;
