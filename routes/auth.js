@@ -83,6 +83,8 @@ import { handleGetVouchersAllFull } from '../handlers/handleGetVouchersAllFull.j
 import { handleInsertUrlsPagos } from '../handlers/handleInsertUrlsPagos.js';
 import { handleIsCobrarUtilidad } from '../handlesrsUtilidades/handleIsCobrarUtilidad.js';
 import { handleUtilidadTrimestral } from '../handlesrsUtilidades/handleUtilidadTrimestral.js';
+import { handlePatchDatosCuentaBancaria } from '../handlesrsUtilidades/handlePatchDatosCuentaBancaria.js';
+import { handleGetUserIdById } from '../handlesrsUtilidades/handleGetUserIdById.js';
 
 const app = express();
 
@@ -1774,5 +1776,9 @@ router.get("/getVouchersAllFull", handleGetVouchersAllFull);
 // utilidades
 router.patch("/isCobrarUtilidad", handleIsCobrarUtilidad);
 router.patch("/utilidadTrimestral", handleUtilidadTrimestral);
+router.patch("/patchDatosCuentaBancaria", handlePatchDatosCuentaBancaria);
+
+//usuario
+router.get("/getUserIdById", handleGetUserIdById);
 
 export default router;

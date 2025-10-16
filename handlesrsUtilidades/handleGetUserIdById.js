@@ -1,0 +1,32 @@
+import { UsersModel } from "../models/users.js";
+
+export const handleGetUserIdById = async (req, res) => {
+    try {
+        const { id } = req.query;
+
+        console.log("isCobrar-id123: ", id)
+
+        const updatedCuantaUsuario = await UsersModel.findById(id);
+
+        // Si no se encontró el voucher
+        if (!updatedCuantaUsuario) {
+            return res.status(402).json({
+                message: "Lo Sentimos",
+                messageLarge: "No existe en la base de datos",
+            });
+        }
+
+        // Respuesta exitosa
+        return res.status(201).json({
+            message: "Utilidad actualizada correctamente",
+            data: updatedCuantaUsuario,
+            status: 201,
+        });
+    } catch (error) {
+        // Manejo de errores
+        console.error(error);
+        return res.status(500).json({
+            message: "Ocurrió un error al actualizar el status",
+        });
+    }
+};
