@@ -177,7 +177,7 @@ router.post('/login', async (req, res) => {
         console.log("documentoUsuario: ", documentoUsuario)
         console.log("password: ", password)
 
-        const user = await UsersModel.findOne({ documentoUsuario: documentoUsuario, statusActive: "1" }).lean().exec();
+        const user = await UsersModel.findOne({ documentoUsuario: documentoUsuario, statusActive: { $in: ["1", "2"] } }).lean().exec();
         if (!user) return res.status(406).json({
             message: 'Error en la autenticación',
             messageLarge: 'Lo sentimos, su usuario no existe o no esta activo, verifique y vuleva a intentarlo',
