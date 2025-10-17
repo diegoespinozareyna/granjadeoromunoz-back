@@ -1,19 +1,39 @@
 import { UsersModel } from "../models/users.js";
 
-export const handlePatchDatosCuentaBancaria = async (req, res) => {
+export const handlePatchZeroUtilidades = async (req, res) => {
     try {
         const { id,
-            banco,
-            numeroCuenta,
-            cciCuenta,
-            titularCuenta,
-            proyecto } = req.body;
+            utilidad1,
+            utilidad2,
+            utilidad3,
+            utilidad4,
+            utilidad5,
+            utilidad6,
+            utilidad7,
+            utilidad8,
+            utilidad9,
+            utilidad10, } = req.body;
 
-        console.log("isCobrar-id123: ", id, banco, numeroCuenta, cciCuenta, titularCuenta)
+        console.log("isCobrar-id123: ", id)
+
+        // const id = id;
 
         const updatedCuantaUsuario = await UsersModel.findByIdAndUpdate(
             id,
-            { $set: { banco, numeroCuenta, cciCuenta, titularCuenta } },
+            {
+                $set: {
+                    utilidad1,
+                    utilidad2,
+                    utilidad3,
+                    utilidad4,
+                    utilidad5,
+                    utilidad6,
+                    utilidad7,
+                    utilidad8,
+                    utilidad9,
+                    utilidad10,
+                }
+            },
             { new: true }
         );
 

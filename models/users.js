@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema(
         banco: String,
         numeroCuenta: String,
         cciCuenta: String,
+        titularCuenta: String,
         //cobro utilidades
         utilidad1: String,
         utilidad2: String,
