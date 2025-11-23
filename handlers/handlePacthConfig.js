@@ -4,7 +4,7 @@ export const handlePacthConfig = async (req, res) => {
     try {
         const body = await req.body;
 
-        const { precioKiloHuevos, proyecto } = body;
+        const { precioKiloHuevos, proyecto, userChange } = body;
 
         console.log("body de pacthConfig: ", body)
 
@@ -12,6 +12,7 @@ export const handlePacthConfig = async (req, res) => {
             { proyecto },
             {
                 precioKiloHuevos,
+                userChange,
             },
             { new: true }
         );

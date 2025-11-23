@@ -5,6 +5,7 @@ const configSchema = new mongoose.Schema(
     {
         precioKiloHuevos: String,
         proyecto: String,
+        userChange: String,
     },
     {
         timestamps: true,
