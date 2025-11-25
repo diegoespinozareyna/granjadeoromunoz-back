@@ -13,6 +13,7 @@ export const handleEditarPedido = async (req, res) => {
         departamentoEntrega,
         celularEntrega,
         zona,
+        precioSemanal,
     } = req.body;
 
     try {
@@ -29,7 +30,8 @@ export const handleEditarPedido = async (req, res) => {
                 provinciaEntrega,
                 departamentoEntrega,
                 celularEntrega,
-                zona
+                zona,
+                precioSemanal,
             },
             { new: true }
         );
